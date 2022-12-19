@@ -6,6 +6,9 @@
 #include <winternl.h>
 #include <Psapi.h>
 
+// STL
+#include <cctype>
+
 // Custom
 #include "ConsoleUtils.h"
 
@@ -230,7 +233,7 @@ bool Lower(const TCHAR* szInput, const size_t unLength, TCHAR* szOutput) {
 	}
 
 	for (size_t i = 0; i < unLength; ++i) {
-		szOutput[i] = szInput[i];
+		szOutput[i] = std::tolower(szInput[i]);
 	}
 
 	return true;
