@@ -1,0 +1,141 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Исходные файлы">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+    <Filter Include="Файлы заголовков">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Файлы ресурсов">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="distorm">
+      <UniqueIdentifier>{96fadd27-0c21-49a6-b87c-d60d86870dc5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="distorm\include">
+      <UniqueIdentifier>{d753d539-6333-4d6f-88eb-f624d1c6f240}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="distorm\src">
+      <UniqueIdentifier>{e53a683d-0d28-4111-bbbb-e5e7b92381e8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="distormx">
+      <UniqueIdentifier>{2396406a-5ddf-47ef-a39e-4ede23c3f664}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="distormx\src">
+      <UniqueIdentifier>{05eef973-ac09-4dd9-a5bb-9f79e14401ca}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="distormx\include">
+      <UniqueIdentifier>{678fcbba-d247-4713-af2b-0675dce1690b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Detours">
+      <UniqueIdentifier>{2b044748-d6a3-4d36-80f2-bea14deb2997}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="framework.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="LibraryLoader.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="distorm\include\distorm.h">
+      <Filter>distorm\include</Filter>
+    </ClInclude>
+    <ClInclude Include="distorm\include\mnemonics.h">
+      <Filter>distorm\include</Filter>
+    </ClInclude>
+    <ClInclude Include="distorm\src\config.h">
+      <Filter>distorm\src</Filter>
+    </ClInclude>
+    <ClInclude Include="distorm\src\decoder.h">
+      <Filter>distorm\src</Filter>
+    </ClInclude>
+    <ClInclude Include="distorm\src\instructions.h">
+      <Filter>distorm\src</Filter>
+    </ClInclude>
+    <ClInclude Include="distorm\src\insts.h">
+      <Filter>distorm\src</Filter>
+    </ClInclude>
+    <ClInclude Include="distorm\src\operands.h">
+      <Filter>distorm\src</Filter>
+    </ClInclude>
+    <ClInclude Include="distorm\src\prefix.h">
+      <Filter>distorm\src</Filter>
+    </ClInclude>
+    <ClInclude Include="distorm\src\textdefs.h">
+      <Filter>distorm\src</Filter>
+    </ClInclude>
+    <ClInclude Include="distorm\src\wstring.h">
+      <Filter>distorm\src</Filter>
+    </ClInclude>
+    <ClInclude Include="distorm\src\x86defs.h">
+      <Filter>distorm\src</Filter>
+    </ClInclude>
+    <ClInclude Include="distormx\src\OS.h">
+      <Filter>distormx\src</Filter>
+    </ClInclude>
+    <ClInclude Include="distormx\include\distormx.h">
+      <Filter>distormx\include</Filter>
+    </ClInclude>
+    <ClInclude Include="Console.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+    <ClInclude Include="Detours\Detours.h">
+      <Filter>Detours</Filter>
+    </ClInclude>
+    <ClInclude Include="IceKey.h">
+      <Filter>Файлы заголовков</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="LibraryLoader.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="distorm\src\decoder.c">
+      <Filter>distorm\src</Filter>
+    </ClCompile>
+    <ClCompile Include="distorm\src\distorm.c">
+      <Filter>distorm\src</Filter>
+    </ClCompile>
+    <ClCompile Include="distorm\src\instructions.c">
+      <Filter>distorm\src</Filter>
+    </ClCompile>
+    <ClCompile Include="distorm\src\insts.c">
+      <Filter>distorm\src</Filter>
+    </ClCompile>
+    <ClCompile Include="distorm\src\mnemonics.c">
+      <Filter>distorm\src</Filter>
+    </ClCompile>
+    <ClCompile Include="distorm\src\operands.c">
+      <Filter>distorm\src</Filter>
+    </ClCompile>
+    <ClCompile Include="distorm\src\prefix.c">
+      <Filter>distorm\src</Filter>
+    </ClCompile>
+    <ClCompile Include="distorm\src\textdefs.c">
+      <Filter>distorm\src</Filter>
+    </ClCompile>
+    <ClCompile Include="distormx\src\distormx.c">
+      <Filter>distormx\src</Filter>
+    </ClCompile>
+    <ClCompile Include="distormx\src\OS.c">
+      <Filter>distormx\src</Filter>
+    </ClCompile>
+    <ClCompile Include="Console.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+    <ClCompile Include="Detours\Detours.cpp">
+      <Filter>Detours</Filter>
+    </ClCompile>
+    <ClCompile Include="IceKey.cpp">
+      <Filter>Исходные файлы</Filter>
+    </ClCompile>
+  </ItemGroup>
+</Project>
