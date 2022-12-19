@@ -216,6 +216,26 @@ DWORD WINAPI StartServiceRoutine(LPVOID lpThreadParameter) {
 	return 0;
 }
 
+bool Lower(const TCHAR* szInput, const size_t unLength, TCHAR* szOutput) {
+	if (!szInput) {
+		return false;
+	}
+
+	if (!unLength) {
+		return false;
+	}
+
+	if (!szOutput) {
+		return false;
+	}
+
+	for (size_t i = 0; i < unLength; ++i) {
+		szOutput[i] = szInput[i];
+	}
+
+	return true;
+}
+
 DWORD GetPID(const TCHAR* szProcessName) {
 	if (!szProcessName) {
 		return 0;
@@ -233,10 +253,22 @@ DWORD GetPID(const TCHAR* szProcessName) {
 
 	if (Process32First(hSnap, &pe)) {
 		while (Process32Next(hSnap, &pe)) {
-			if (_tcsncmp(pe.szExeFile, szProcessName, MAX_PATH) == 0) {
+			PTCHAR szName = new TCHAR[MAX_PATH + 1];
+			if (!szName) {
+				CloseHandle(hSnap);
+				return 0;
+			}
+			memset(szName, 0, sizeof(TCHAR[MAX_PATH + 1]));
+			if (!Lower(pe.szExeFile, MAX_PATH, szName)) {
+				delete[] szName;
+				continue;
+			}
+			if (_tcsncmp(szName, szProcessName, MAX_PATH) == 0) {
+				delete[] szName;
 				CloseHandle(hSnap);
 				return pe.th32ProcessID;
 			}
+			delete[] szName;
 		}
 	}
 
