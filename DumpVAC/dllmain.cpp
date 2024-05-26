@@ -238,6 +238,7 @@ __declspec(naked) void Encrypt_Hook() {
 }
 
 bool bCallOriginal = false;
+bool bSessionCheck = false;
 
 unsigned char pIceKey1[8];
 unsigned char pIceKey2[8];
@@ -303,6 +304,12 @@ MODULE_RESULT __stdcall RunFunc_Hook(unsigned int unID, void* pInData, unsigned 
 		return unResult;
 	}
 
+	if (bSessionCheck) {
+		bSessionCheck = false;
+		clrprintf(COLOR::COLOR_GREEN, "[DumpVAC] RunFunc allowed. (Session check)\n");
+		return RunFunc(unID, pInData, unInDataSize, pOutData, pOutDataSize);
+	}
+
 	clrprintf(COLOR::COLOR_RED, "[DumpVAC] RunFunc ID=%08X\n", unID);
 	clrprintf(COLOR::COLOR_RED, "[DumpVAC] RunFunc blocked.\n");
 
@@ -312,6 +319,8 @@ MODULE_RESULT __stdcall RunFunc_Hook(unsigned int unID, void* pInData, unsigned 
 
 	return MODULE_RESULT::FAIL_INITIALIZE;
 }
+
+unsigned int unSessionModuleHash = 0;
 
 fnLoadModuleStandard LoadModuleStandard = nullptr;
 bool __stdcall LoadModuleStandard_Hook(PMODULE_INFO pModuleInfo, unsigned char unFlags) {
@@ -369,7 +378,13 @@ bool __stdcall LoadModuleStandard_Hook(PMODULE_INFO pModuleInfo, unsigned char u
 	if (pModuleInfo->m_pRunFunc) {
 		if (!bCallOriginal) {
 			RunFunc = pModuleInfo->m_pRunFunc;
+			unSessionModuleHash = pModuleInfo->m_unHash;
 		}
+
+		if (unSessionModuleHash == pModuleInfo->m_unHash) {
+			bSessionCheck = true;
+		}
+
 		pModuleInfo->m_pRunFunc = RunFunc_Hook;
 	}
 
